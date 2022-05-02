@@ -25,13 +25,16 @@ import numpy as np
 
 path_to_file = '1980s-Casio-Piano-C5.wav'
 samplerate, data = wavfile.read(path_to_file)
-wavefile.write('test1.wav', 44100, data)
-wavefile.write('test2.wav', 44100, data*2)
+print(type(data))
+print(data.size, data.shape[0])
+
+#play nd-array
 sd.play(data, 44100)
 sd.play(data*2, 44100)
 
+wavefile.write('test1.wav', 44100, data)
+wavefile.write('test2.wav', 44100, data*2)
 
-print(data.size, data.shape[0])
 time = np.linspace(0., data.size, data.shape[0])
 plt.plot(time, data, label="audio data")
 
