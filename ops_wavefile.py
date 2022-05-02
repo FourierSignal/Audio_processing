@@ -42,3 +42,19 @@ plt.legend()
 plt.xlabel("Time [s]")
 plt.ylabel("Amplitude")
 plt.show()
+
+
+# soundfile and sounddevice 
+#-----------------------------
+#play random data
+import sounddevice as sd
+import soundfile as sf
+
+fs = 44100
+data = np.random.uniform(-1, 1, fs)
+sd.play(data, fs)
+
+sf.write('new_file.wav', data, 44100)
+data, fs = sf.read('new_file.wav', dtype='float32')  
+sd.play(data, fs)
+status = sd.wait()
