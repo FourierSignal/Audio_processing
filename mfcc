@@ -1,0 +1,10 @@
+from python_speech_features import mfcc, logfbank
+
+sampling_freq, sig_audio = wavfile.read("Welcome.wav")
+sig_audio = sig_audio[:15000]
+mfcc_feature = mfcc(sig_audio, sampling_freq)
+mfcc_feature = mfcc_feat.T
+plt.matshow(mfcc_feature)
+fb_feature = logfbank(sig_audio, sampling_freq)
+fb_feature = fb_feat.T
+plt.matshow(fb_feature)
